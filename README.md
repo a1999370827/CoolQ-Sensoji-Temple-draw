@@ -13,7 +13,7 @@
 
 
 ## 使用方法：
-插件和xyz.shinnshi.chouqian文件夹丢到./app里去，重启酷Q就能开启使用
+插件本体(xyz.shinnshi.chouqian.cpk)和xyz.shinnshi.chouqian文件夹丢到./app里去，重启酷Q就能开启使用
 指令：抽签。群聊私聊都可。一个QQ号一天抽一次
 
 
