@@ -37,14 +37,14 @@ class CQHandler(object):
     def OnEvent_PrivateMsg(self, subType, sendTime, fromQQ, msg, font):
         global last_time
         logging.info('OnEvent_PrivateMsg: subType={0}, sendTime={1}, fromQQ={2}, msg={3}, font={4}'.format(subType, sendTime, fromQQ, msg, font))
-        try:
-            folder = os.path.exists("./data/app/xyz.shinnshi.chouqian")
-            if not folder:
-                os.makedirs("./data/app/xyz.shinnshi.chouqian")
-            if not (os.path.exists("./data/app/xyz.shinnshi.chouqian/today.txt")):
-                with open("./data/app/xyz.shinnshi.chouqian/today.txt","w") as f:
-                    f.write('当前已抽：\n')
-            if msg == "抽签":
+        if msg == "抽签":
+            try:
+                folder = os.path.exists("./data/app/xyz.shinnshi.chouqian")
+                if not folder:
+                    os.makedirs("./data/app/xyz.shinnshi.chouqian")
+                if not (os.path.exists("./data/app/xyz.shinnshi.chouqian/today.txt")):
+                    with open("./data/app/xyz.shinnshi.chouqian/today.txt","w") as f:
+                        f.write('当前已抽：\n')
                 now_time = time.strftime('%Y-%m-%d',time.localtime())
                 if last_time != now_time:
                     with open("./data/app/xyz.shinnshi.chouqian/today.txt","w") as f:
@@ -62,19 +62,19 @@ class CQHandler(object):
                 CQSDK.SendPrivateMsg(fromQQ, msg)
                 with open("./data/app/xyz.shinnshi.chouqian/today.txt","a") as f:
                     f.write(str(fromQQ)+"\n")
-        except Exception as e:
-            logging.exception(e)
+            except Exception as e:
+                logging.exception(e)
     def OnEvent_GroupMsg(self, subType, sendTime, fromGroup, fromQQ, fromAnonymous, msg, font):
         global last_time
         logging.info('OnEvent_GroupMsg: subType={0}, sendTime={1}, fromGroup={2}, fromQQ={3}, fromAnonymous={4}, msg={5}, font={6}'.format(subType, sendTime, fromGroup, fromQQ, fromAnonymous, msg, font))
-        try:
-            folder = os.path.exists("./data/app/xyz.shinnshi.chouqian")
-            if not folder:
-                os.makedirs("./data/app/xyz.shinnshi.chouqian")
-            if not (os.path.exists("./data/app/xyz.shinnshi.chouqian/today.txt")):
-                with open("./data/app/xyz.shinnshi.chouqian/today.txt","w") as f:
-                    f.write('当前已抽：\n')
-            if msg == "抽签":
+        if msg == "抽签":
+            try:
+                folder = os.path.exists("./data/app/xyz.shinnshi.chouqian")
+                if not folder:
+                    os.makedirs("./data/app/xyz.shinnshi.chouqian")
+                if not (os.path.exists("./data/app/xyz.shinnshi.chouqian/today.txt")):
+                    with open("./data/app/xyz.shinnshi.chouqian/today.txt","w") as f:
+                        f.write('当前已抽：\n')
                 now_time = time.strftime('%Y-%m-%d',time.localtime())
                 if last_time != now_time:
                     with open("./data/app/xyz.shinnshi.chouqian/today.txt","w") as f:
@@ -92,6 +92,5 @@ class CQHandler(object):
                 CQSDK.SendGroupMsg(fromGroup, msg)
                 with open("./data/app/xyz.shinnshi.chouqian/today.txt","a") as f:
                     f.write(str(fromQQ)+"\n")
-        except Exception as e:
-            logging.exception(e)
-
+            except Exception as e:
+                logging.exception(e)
