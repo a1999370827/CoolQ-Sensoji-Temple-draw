@@ -1,4 +1,4 @@
-# [酷Q机器人](https://cqp.cc/forum.php)用用抽签插件
+# [酷Q机器人](https://cqp.cc/forum.php)用抽签插件
 ## 金龙山浅草寺一百观音签
 
 ### 解签来源：http://blog.sina.com.cn/s/blog_50e8ed7e0102xbo7.html
